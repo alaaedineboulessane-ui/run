@@ -17,7 +17,7 @@ def verif(password):
             majusc += 1
         if password[i].islower():
             minusc +=1
-        if not password[i] in abc:
+        if password[i].isdigit():
             chiffre += 1
         if password[i] in special:
             spec += 1
@@ -36,21 +36,28 @@ def cryptage(mdp):
 
 
 def fichier(chiffre):
-    data = {"mots_de_passe": []}
+    if os.path.exists("data.json"):
+        with open("data.json", "r") as f:
+            data = json.load(f)
+    else:
+        data = {"mots_de_passe": []}
     for i in range(chiffre):
         mdp = input(f"Entrez le mot de passe {i+1} : ")
         data["mots_de_passe"].append(mdp)
+    data["mots_de_passe"] = list(set(data["mots_de_passe"]))
     with open("data.json", "w") as f:
         json.dump(data, f, indent=4)
     print(f"{chiffre} mot(s) de passe ajouté(s) avec succès !")
 
+
 def afficher_fichier():
     with open("data.json", "r") as f:
         data = json.load(f)
-        print(data)
+        return data["mots_de_passe"]
+
 
 fichier(4)
-afficher_fichier()
+
 
 
 #mot = input("Choissisez votre mot de passe: ")
