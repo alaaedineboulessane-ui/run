@@ -36,11 +36,7 @@ def cryptage(mdp):
 
 
 def fichier(chiffre):
-    if os.path.exists("data.json"):
-        with open("data.json", "r") as f:
-            data = json.load(f)
-    else:
-        data = {"mots_de_passe": []}
+    data = {"mots_de_passe": []}
     for i in range(chiffre):
         mdp = input(f"Entrez le mot de passe {i+1} : ")
         data["mots_de_passe"].append(mdp)
@@ -48,5 +44,13 @@ def fichier(chiffre):
         json.dump(data, f, indent=4)
     print(f"{chiffre} mot(s) de passe ajouté(s) avec succès !")
 
-mot = input("Choissisez votre mot de passe: ")
-print(cryptage(mot))
+def afficher_fichier():
+    with open("data.json", "r") as f:
+        data = json.load(f)
+        print(data)
+
+fichier(4)
+afficher_fichier()
+
+
+#mot = input("Choissisez votre mot de passe: ")
