@@ -42,7 +42,7 @@ def fichier(chiffre):
     else:
         data = {"mots_de_passe": []}
     for i in range(chiffre):
-        mdp = input(f"Entrez le mot de passe {i+1} : ")
+        mdp = cryptage(input(f"Entrez le mot de passe {i+1} : "))
         data["mots_de_passe"].append(mdp)
     data["mots_de_passe"] = list(set(data["mots_de_passe"]))
     with open("data.json", "w") as f:
