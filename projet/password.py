@@ -1,3 +1,5 @@
+import hashlib
+
 def verif(password):
     abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     special = "!@#$%^&*"
@@ -25,6 +27,10 @@ def verif(password):
         return "Doit contenir au moins un chiffre"
     elif spec == 0:
         return "Doit contenir au moins un charactere special"
+    return "Votre mot de passe est solide"
     
+def cryptage(mdp):
+    return hashlib.sha256(mdp.encode()).hexdigest()
 
-print(verif("alad5in%aaaA"))
+mot = input("Choissisez votre mot de passe: ")
+print(cryptage(mot))
