@@ -1,4 +1,6 @@
 import hashlib
+import json
+import os
 
 def verif(password):
     abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -31,6 +33,20 @@ def verif(password):
     
 def cryptage(mdp):
     return hashlib.sha256(mdp.encode()).hexdigest()
+
+
+def fichier(chiffre):
+    if os.path.exists("data.json"):
+        with open("data.json", "r") as f:
+            data = json.load(f)
+    else:
+        data = {"mots_de_passe": []}
+    for i in range(chiffre):
+        mdp = input(f"Entrez le mot de passe {i+1} : ")
+        data["mots_de_passe"].append(mdp)
+    with open("data.json", "w") as f:
+        json.dump(data, f, indent=4)
+    print(f"{chiffre} mot(s) de passe ajouté(s) avec succès !")
 
 mot = input("Choissisez votre mot de passe: ")
 print(cryptage(mot))
