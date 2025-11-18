@@ -3,7 +3,6 @@ import json
 import os
 
 def verif(password):
-    abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     special = "!@#$%^&*"
     majusc = 0
     minusc = 0
@@ -42,9 +41,11 @@ def fichier(chiffre):
     else:
         data = {"mots_de_passe": []}
     for i in range(chiffre):
-        mdp = cryptage(input(f"Entrez le mot de passe {i+1} : "))
+        mdp = input(f"Entrez le mot de passe {i+1} : ")
         data["mots_de_passe"].append(mdp)
     data["mots_de_passe"] = list(set(data["mots_de_passe"]))
+    for o in range(len(data["mots_de_passe"])):
+        data["mots_de_passe"][o] = cryptage(data["mots_de_passe"][o])
     with open("data.json", "w") as f:
         json.dump(data, f, indent=4)
     print(f"{chiffre} mot(s) de passe ajouté(s) avec succès !")
