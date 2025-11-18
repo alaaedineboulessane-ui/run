@@ -1,3 +1,6 @@
+#Ceci est un fichier qui va contenir toutes les fonctions que j'aurais crées
+
+
 import hashlib
 import json
 import os
