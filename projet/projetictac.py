@@ -1,4 +1,5 @@
 import random
+import time
 
 def choix(reponse):
     tab = ["X", "O"]
@@ -41,7 +42,7 @@ def victoire(liste):
 
 def tictac():
     action = ""
-    ind = 0
+    ind = 1
     jeu = [[] for i in range(9)]
     reponse = int(input("Joueur 1 choissisez votre signe (1 pour le signe X, 2 pour le signe O): "))
     signe = choix(reponse)
@@ -50,13 +51,16 @@ def tictac():
     ligne_centre = ["centre_gauche", "centre_centre", "centre_droite"]
     ligne_bas = ["bas_gauche", "bas_centre", "bas_droite"]
     question = input("Voulez-vous jouer avec l'ia ? " )
+    if question.lower() == "oui":
+        print("L'ia vous remercie de l'avoir choisie pour jouer ! ")
+        time.sleep(2)
     print("Voilà les placements possibles, il faut taper exactement ce qui est dit: " + "\n" + str(ligne_haut) + "\n" + str(ligne_centre) + "\n" + str(ligne_bas))
     print("Voilà le tableau: ")
     while espace_vide(jeu) != 0:
         while True:
             for i in range(0, 9, 3):
                 print(jeu[i:i+3])
-            debut = input("Joueur numéro 1, jouez le tour numéro " + str(ind) + " ! Où voulez-vous placer votre signe ?: ")
+            debut = input("\n" + "Joueur numéro 1, jouez le tour numéro " + str(ind) + " ! Où voulez-vous placer votre signe ?: ")
             if debut in ligne_haut or debut in ligne_bas or debut in ligne_centre:
                 action = "Joueur 1"
                 ind += 1
@@ -65,6 +69,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "haut_centre" and jeu[1] == []:
@@ -72,6 +78,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "haut_droite" and jeu[2] == []:
@@ -79,6 +87,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "centre_gauche" and jeu[3] == []:
@@ -86,6 +96,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "centre_centre" and jeu[4] == []:
@@ -93,6 +105,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "centre_droite" and jeu[5] == []:
@@ -100,6 +114,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "bas_gauche" and jeu[6] == []:
@@ -107,6 +123,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "bas_centre" and jeu[7] == []:
@@ -114,6 +132,8 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
                 elif debut == "bas_droite" and jeu[8] == []:
@@ -121,85 +141,109 @@ def tictac():
                     if victoire(jeu) == True:
                         for i in range(0, 9, 3):
                             print(jeu[i:i+3])
+                        print("Vérification de la victoire...")
+                        time.sleep(3)
                         return "Le " + action + " a gagné !"
                     break
             else:
                 print("Vous avez fait un mauvais choix, la case est deja prise ou n'existe pas, veuillez réssayer")
         while True:
             if question.lower() == "oui":
+                joke = ["L'IA analyse la situation...", "L'IA réfléchit intensément...", "L'IA calcule son prochain mouvement...", "L'IA cherche la faille dans votre stratégie...", "L'IA observe silencieusement le plateau...", "L'IA prépare une attaque sournoise...", "L'IA fait tourner ses circuits...", "L'IA simule plusieurs scénarios...", "L'IA prend une décision calculée...", "L'IA hésite... puis fait son choix.", "L'IA tente de vous impressionner...", "L'IA s’apprête à jouer un coup stratégique...", "L'IA analyse vos faiblesses...", "L'IA croit tenir la victoire...", "L'IA active son mode tactique...", "L'IA réfléchit plus vite que l'éclair...", "L'IA prépare un mouvement imprévisible...", "L'IA murmure : « Ce coup sera décisif... »", "L'IA effectue un scan tactique du plateau...", "L'IA applique une stratégie secrète..."]
+                thinking = joke[random.randint(0,19)]
                 action = "Intelligence Artificielle"
                 reponse_ia = ia(jeu,signe1)
                 if reponse_ia in ligne_haut or reponse_ia in ligne_bas or reponse_ia in ligne_centre:
+                    print(thinking)
+                    time.sleep(4)
                     if reponse_ia == "haut_gauche" and jeu[0] == []:
                         jeu[0] = signe1
                         print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "haut_centre" and jeu[1] == []:
                         jeu[1] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "haut_droite" and jeu[2] == []:
                         jeu[2] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "centre_gauche" and jeu[3] == []:
                         jeu[3] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n" )
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "centre_centre" and jeu[4] == []:
                         jeu[4] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "centre_droite" and jeu[5] == []:
                         jeu[5] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "bas_gauche" and jeu[6] == []:
                         jeu[6] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "bas_centre" and jeu[7] == []:
                         jeu[7] = signe1
-                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
-                            return "Le " + action + " a gagné !"
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
+                            return "L'" + action + " a gagné !"
                         break
                     elif reponse_ia == "bas_droite" and jeu[8] == []:
                         jeu[8] = signe1
-                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia )
+                        print("Votre opposant a placé " + signe1 + " sur la case " + reponse_ia + "\n")
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "L' " + action + " a gagné !"
                         break
             else:
@@ -211,6 +255,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "haut_centre" and jeu[1] == []:
@@ -218,6 +264,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "haut_droite" and jeu[2] == []:
@@ -225,6 +273,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "centre_gauche" and jeu[3] == []:
@@ -232,6 +282,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "centre_centre" and jeu[4] == []:
@@ -239,6 +291,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "centre_droite" and jeu[5] == []:
@@ -246,6 +300,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "bas_gauche" and jeu[6] == []:
@@ -253,6 +309,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "bas_centre" and jeu[7] == []:
@@ -260,6 +318,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     elif debut1 == "bas_droite" and jeu[8] == []:
@@ -267,6 +327,8 @@ def tictac():
                         if victoire(jeu) == True:
                             for i in range(0, 9, 3):
                                 print(jeu[i:i+3])
+                            print("Vérification de la victoire...")
+                            time.sleep(3)
                             return "Le " + action + " a gagné !"
                         break
                     action = "Joueur 2"
@@ -310,6 +372,24 @@ def ia(board,signe):
         return ligne_bas[0]
     elif board[2] == signe and board[8] == board[2] and board[5] == []:
         return ligne_centre[2]
+    elif board[8] == signe and board[4] == board[8] and board[0] == []:
+        return ligne_haut[0]
+    elif board[3] == signe and board[6] == board[3] and board[0] == []:
+        return ligne_haut[0]
+    elif board[4] == signe and board[7] == board[4] and board[1] == []:
+        return ligne_haut[1]
+    elif board[5] == signe and board[8] == board[5] and board[2] == []:
+        return ligne_haut[2]
+    elif board[4] == signe and board[8] == board[4] and board[0] == []:
+        return ligne_haut[0]
+    elif board[0] == signe and board[8] == board[0] and board[4] == []:
+        return ligne_centre[1]
+    elif board[4] == signe and board[6] == board[4] and board[2] == []:
+        return ligne_haut[2]
+    elif board[2] == signe and board[6] == board[2] and board[4] == []:
+        return ligne_centre[1]
+
+    
     ligne_choisie = random.randint(0,2)
     rand = random.randint(0,2)
     cible = tableau[ligne_choisie][rand]
