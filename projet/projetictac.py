@@ -41,129 +41,237 @@ def victoire(liste):
 
 def tictac():
     action = ""
-    ind = 1
-    jeu = [[]*9]
+    ind = 0
+    jeu = [[] for i in range(9)]
     reponse = int(input("Joueur 1 choissisez votre signe (1 pour le signe X, 2 pour le signe O): "))
     signe = choix(reponse)
     signe1 = "O" if signe == "X" else "X"
     ligne_haut = ["haut_gauche", "haut_centre", "haut_droite"]
     ligne_centre = ["centre_gauche", "centre_centre", "centre_droite"]
     ligne_bas = ["bas_gauche", "bas_centre", "bas_droite"]
-    question = input("Voulez-vous jouer avec l'ia ?" )
+    question = input("Voulez-vous jouer avec l'ia ? " )
     print("Voilà les placements possibles, il faut taper exactement ce qui est dit: " + "\n" + str(ligne_haut) + "\n" + str(ligne_centre) + "\n" + str(ligne_bas))
+    print("Voilà le tableau: ")
     while espace_vide(jeu) != 0:
-        while True: 
-            debut = input("Joueur numéro 1, jouez le tour numéro " + str(ind) + " ! Où voulez-vous placer votre signe ?: ")
-            if debut in ligne_haut or debut in ligne_bas or debut in ligne_centre:
-                if debut == "haut_gauche" and jeu[0] == []:
-                    jeu[0] = signe
-                    break
-                elif debut == "haut_centre" and jeu[1] == []:
-                    jeu[1] = signe
-                    break
-                elif debut == "haut_droite" and jeu[2] == []:
-                    jeu[2] = signe
-                    break
-                elif debut == "centre_gauche" and jeu[3] == []:
-                    jeu[3] = signe
-                    break
-                elif debut == "centre_centre" and jeu[4] == []:
-                    jeu[4] = signe
-                    break
-                elif debut == "centre_droite" and jeu[5] == []:
-                    jeu[5] = signe
-                    break
-                elif debut == "bas_gauche" and jeu[6] == []:
-                    jeu[6] = signe
-                    break
-                elif debut == "bas_centre" and jeu[7] == []:
-                    jeu[7] = signe
-                    break
-                elif debut == "bas_droite" and jeu[8] == []:
-                    jeu[8] = signe
-                    break
-                action = "Joueur 1"
-                if victoire(jeu) == True:
-                    for i in range(0, 9, 3):
-                        print(jeu[i:i+3])
-                    return "Le " + action + " a gagné !"
-                else:
-                    print("Vous avez fait un mauvais choix, la case est deja prise ou n'existe pas, veuillez réssayer")
         while True:
-            debut1 = input("Joueur numéro 2, jouez le tour numéro " + str(ind) + " ! Où voulez-vous placer votre signe ?: ")
-            if question.lower() == "oui":
-                reponse_ia = ia()
-                if reponse_ia in ligne_haut or reponse_ia in reponse_ia or debut1 in ligne_centre:
-                    if reponse_ia == "haut_gauche" and jeu[0] == []:
-                        jeu[0] = signe1
-                        break
-                    elif reponse_ia == "haut_centre" and jeu[1] == []:
-                        jeu[1] = signe1
-                        break
-                    elif reponse_ia == "haut_droite" and jeu[2] == []:
-                        jeu[2] = signe1
-                        break
-                    elif reponse_ia == "centre_gauche" and jeu[3] == []:
-                        jeu[3] = signe1
-                        break
-                    elif reponse_ia == "centre_centre" and jeu[4] == []:
-                        jeu[4] = signe1
-                        break
-                    elif reponse_ia == "centre_droite" and jeu[5] == []:
-                        jeu[5] = signe1
-                        break
-                    elif reponse_ia == "bas_gauche" and jeu[6] == []:
-                        jeu[6] = signe1
-                        break
-                    elif reponse_ia == "bas_centre" and jeu[7] == []:
-                        jeu[7] = signe1
-                        break
-                    elif reponse_ia == "bas_droite" and jeu[8] == []:
-                        jeu[8] = signe1
-                        break
-                    action = "Joueur 2"
-                if victoire(jeu) == True:
-                    for i in range(0, 9, 3):
-                        print(jeu[i:i+3])
-                    return "Le " + action + " a gagné !"
-            elif debut1 in ligne_haut or debut1 in ligne_bas or debut1 in ligne_centre:
-                if debut1 == "haut_gauche" and jeu[0] == []:
-                    jeu[0] = signe1
-                    break
-                elif debut1 == "haut_centre" and jeu[1] == []:
-                    jeu[1] = signe1
-                    break
-                elif debut1 == "haut_droite" and jeu[2] == []:
-                    jeu[2] = signe1
-                    break
-                elif debut1 == "centre_gauche" and jeu[3] == []:
-                    jeu[3] = signe1
-                    break
-                elif debut1 == "centre_centre" and jeu[4] == []:
-                    jeu[4] = signe1
-                    break
-                elif debut1 == "centre_droite" and jeu[5] == []:
-                    jeu[5] = signe1
-                    break
-                elif debut1 == "bas_gauche" and jeu[6] == []:
-                    jeu[6] = signe1
-                    break
-                elif debut1 == "bas_centre" and jeu[7] == []:
-                    jeu[7] = signe1
-                    break
-                elif debut1 == "bas_droite" and jeu[8] == []:
-                    jeu[8] = signe1
-                    break
-                action = "Joueur 2"
-                if victoire(jeu) == True:
-                    for i in range(0, 9, 3):
-                        print(jeu[i:i+3])
-                    return "Le " + action + " a gagné !"
-                else:
-                    print("Vous avez fait un mauvais choix, la case est deja prise ou n'existe pas, veuillez réssayer")
             ind += 1
             for i in range(0, 9, 3):
                 print(jeu[i:i+3])
+            debut = input("Joueur numéro 1, jouez le tour numéro " + str(ind) + " ! Où voulez-vous placer votre signe ?: ")
+            if debut in ligne_haut or debut in ligne_bas or debut in ligne_centre:
+                action = "Joueur 1"
+                if debut == "haut_gauche" and jeu[0] == []:
+                    jeu[0] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "haut_centre" and jeu[1] == []:
+                    jeu[1] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "haut_droite" and jeu[2] == []:
+                    jeu[2] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "centre_gauche" and jeu[3] == []:
+                    jeu[3] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "centre_centre" and jeu[4] == []:
+                    jeu[4] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "centre_droite" and jeu[5] == []:
+                    jeu[5] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "bas_gauche" and jeu[6] == []:
+                    jeu[6] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "bas_centre" and jeu[7] == []:
+                    jeu[7] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+                elif debut == "bas_droite" and jeu[8] == []:
+                    jeu[8] = signe
+                    if victoire(jeu) == True:
+                        for i in range(0, 9, 3):
+                            print(jeu[i:i+3])
+                        return "Le " + action + " a gagné !"
+                    break
+            else:
+                print("Vous avez fait un mauvais choix, la case est deja prise ou n'existe pas, veuillez réssayer")
+        while True:
+            if question.lower() == "oui":
+                action = "Intelligence Artificielle"
+                reponse_ia = ia()
+                if reponse_ia in ligne_haut or reponse_ia in ligne_bas or reponse_ia in ligne_centre:
+                    if reponse_ia == "haut_gauche" and jeu[0] == []:
+                        jeu[0] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "haut_centre" and jeu[1] == []:
+                        jeu[1] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "haut_droite" and jeu[2] == []:
+                        jeu[2] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "centre_gauche" and jeu[3] == []:
+                        jeu[3] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "centre_centre" and jeu[4] == []:
+                        jeu[4] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "centre_droite" and jeu[5] == []:
+                        jeu[5] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "bas_gauche" and jeu[6] == []:
+                        jeu[6] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "bas_centre" and jeu[7] == []:
+                        jeu[7] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif reponse_ia == "bas_droite" and jeu[8] == []:
+                        jeu[8] = signe1
+                        print("Votre opposant a placé " + signe1 + "sur la case " + reponse_ia )
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+            else:
+                debut1 = input("Joueur numéro 2, jouez le tour numéro " + str(ind) + " ! Où voulez-vous placer votre signe ?: ")
+                if debut1 in ligne_haut or debut1 in ligne_bas or debut1 in ligne_centre:
+                    action = "Joueur 2"
+                    if debut1 == "haut_gauche" and jeu[0] == []:
+                        jeu[0] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "haut_centre" and jeu[1] == []:
+                        jeu[1] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "haut_droite" and jeu[2] == []:
+                        jeu[2] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "centre_gauche" and jeu[3] == []:
+                        jeu[3] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "centre_centre" and jeu[4] == []:
+                        jeu[4] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "centre_droite" and jeu[5] == []:
+                        jeu[5] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "bas_gauche" and jeu[6] == []:
+                        jeu[6] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "bas_centre" and jeu[7] == []:
+                        jeu[7] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    elif debut1 == "bas_droite" and jeu[8] == []:
+                        jeu[8] = signe1
+                        if victoire(jeu) == True:
+                            for i in range(0, 9, 3):
+                                print(jeu[i:i+3])
+                            return "Le " + action + " a gagné !"
+                        break
+                    action = "Joueur 2"
+                else:
+                    print("Vous avez fait un mauvais choix, la case est deja prise ou n'existe pas, veuillez réssayer")
     return "Match nul ! Retentez !"
 
 
@@ -173,11 +281,11 @@ def ia():
     ligne_bas = ["bas_gauche", "bas_centre", "bas_droite"]
     tableau = [ligne_haut, ligne_centre, ligne_bas]
     ligne_choisie = random.randint(0,2)
-    rand = random.randint(0,8)
+    rand = random.randint(0,2)
     cible = tableau[ligne_choisie][rand]
     tableau[ligne_choisie].pop(rand)
     return cible
                 
 
 
-
+print(tictac())
