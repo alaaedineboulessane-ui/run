@@ -52,7 +52,7 @@ def tictac():
     ligne_bas = ["bas_gauche", "bas_centre", "bas_droite"]
     question = input("Voulez-vous jouer avec l'ia ? " )
     if question.lower() == "oui":
-        print("L'ia vous remercie de l'avoir choisie pour jouer ! ")
+        print("L'ia vous remercie de l'avoir choisie pour jouer ! " + "\n" + "Démarrage de l'IA...")
         time.sleep(2)
     print("Voilà les placements possibles, il faut taper exactement ce qui est dit: " + "\n" + str(ligne_haut) + "\n" + str(ligne_centre) + "\n" + str(ligne_bas))
     print("Voilà le tableau: ")
