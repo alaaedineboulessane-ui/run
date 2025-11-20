@@ -342,54 +342,54 @@ def ia(board,signe):
     ligne_centre = ["centre_gauche", "centre_centre", "centre_droite"]
     ligne_bas = ["bas_gauche", "bas_centre", "bas_droite"]
     tableau = [ligne_haut, ligne_centre, ligne_bas]
-    if board[0] == signe and board[0] == board[1] and board[2] == []:
+    if board[0] == signe and board[1] == signe and board[2] == []:
         return ligne_haut[2]
-    elif board[1] == signe and board[1] == board[2] and board[0] == []:
-        return ligne_haut[0]
-    elif board[0] == signe and board[2] == board[0] and board[1] == []:
+    elif board[0] == signe and board[2] == signe and board[1] == []:
         return ligne_haut[1]
-    elif board[3] == signe and board[4] == board[3] and board[5] == []:
+    elif board[1] == signe and board[2] == signe and board[0] == []:
+        return ligne_haut[0]
+    elif board[3] == signe and board[4] == signe and board[5] == []:
         return ligne_centre[2]
-    elif board[4] == signe and board[5] == board[4] and board[3] == []:
+    elif board[3] == signe and board[5] == signe and board[4] == []:
+        return ligne_centre[1]
+    elif board[4] == signe and board[5] == signe and board[3] == []:
         return ligne_centre[0]
-    elif board[3] == signe and board[5] == board[3] and board[4] == []:
+    elif board[6] == signe and board[7] == signe and board[8] == []:
+        return ligne_bas[2]
+    elif board[6] == signe and board[8] == signe and board[7] == []:
+        return ligne_bas[1]
+    elif board[7] == signe and board[8] == signe and board[6] == []:
+        return ligne_bas[0]
+    elif board[0] == signe and board[3] == signe and board[6] == []:
+        return ligne_bas[0]
+    elif board[0] == signe and board[6] == signe and board[3] == []:
+        return ligne_centre[0]
+    elif board[3] == signe and board[6] == signe and board[0] == []:
+        return ligne_haut[0]
+    elif board[1] == signe and board[4] == signe and board[7] == []:
+        return ligne_bas[1]
+    elif board[1] == signe and board[7] == signe and board[4] == []:
         return ligne_centre[1]
-    elif board[6] == signe and board[7] == board[6] and board[8] == []:
-        return ligne_bas[2]
-    elif board[7] == signe and board[8] == board[7] and board[6] == []:
-        return ligne_bas[0]
-    elif board[6] == signe and board[8] == board[6] and board[7] == []:
-        return ligne_bas[1]
-    elif board[2] == signe and board[5] == board[2] and board[8] == []:
-        return ligne_haut[2]
-    elif board[1] == signe and board[4] == board[1] and board[7] == []:
-        return ligne_bas[1]
-    elif board[0] == signe and board[3] == board[0] and board[6] == []:
-        return ligne_bas[0]
-    elif board[0] == signe and board[4] == board[0] and board[8] == []:
-        return ligne_bas[2]
-    elif board[2] == signe and board[4] == board[2] and board[6] == []:
-        return ligne_bas[0]
-    elif board[2] == signe and board[8] == board[2] and board[5] == []:
-        return ligne_centre[2]
-    elif board[8] == signe and board[4] == board[8] and board[0] == []:
-        return ligne_haut[0]
-    elif board[3] == signe and board[6] == board[3] and board[0] == []:
-        return ligne_haut[0]
-    elif board[4] == signe and board[7] == board[4] and board[1] == []:
+    elif board[4] == signe and board[7] == signe and board[1] == []:
         return ligne_haut[1]
-    elif board[5] == signe and board[8] == board[5] and board[2] == []:
+    elif board[2] == signe and board[5] == signe and board[8] == []:
+        return ligne_bas[2]
+    elif board[2] == signe and board[8] == signe and board[5] == []:
+        return ligne_centre[2]
+    elif board[5] == signe and board[8] == signe and board[2] == []:
         return ligne_haut[2]
-    elif board[4] == signe and board[8] == board[4] and board[0] == []:
+    elif board[0] == signe and board[4] == signe and board[8] == []:
+        return ligne_bas[2]
+    elif board[0] == signe and board[8] == signe and board[4] == []:
+        return ligne_centre[1]
+    elif board[4] == signe and board[8] == signe and board[0] == []:
         return ligne_haut[0]
-    elif board[0] == signe and board[8] == board[0] and board[4] == []:
+    elif board[2] == signe and board[4] == signe and board[6] == []:
+        return ligne_bas[0]
+    elif board[2] == signe and board[6] == signe and board[4] == []:
         return ligne_centre[1]
-    elif board[4] == signe and board[6] == board[4] and board[2] == []:
+    elif board[4] == signe and board[6] == signe and board[2] == []:
         return ligne_haut[2]
-    elif board[2] == signe and board[6] == board[2] and board[4] == []:
-        return ligne_centre[1]
-
-    
     ligne_choisie = random.randint(0,2)
     rand = random.randint(0,2)
     cible = tableau[ligne_choisie][rand]
