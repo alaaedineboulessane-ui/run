@@ -24,26 +24,86 @@
     margin: 0 auto;
 }
 
-#p1 {text-align: center;
+#p1 {
+    text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: grey;
     }
 
-#trait {
+.trait {
     width: 100%;
     height: 1px;
     background-color: grey;
     margin: 20px 0;
     }
 
-#first {
+.traitpetit {
+    width: 100%;       
+    height: 1px;
+    background-color: grey;
+    margin-top: 10px;
+}
+
+.first {
     display: flex;
-    align-items: center; 
+    justify-content: center;
     gap: 30px;
+    margin-top: 20px;
 }
 
 .imagess {
     margin-top: 30px;
+    margin-bottom: 5px;
     width: 350px;
     height: 350px;
+    object-fit: cover;
+}
+
+.bloc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+#paragraphe {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 20px;
+}
+
+.présentation_1 {
+    margin:0;
+    padding:0;      
+}
+
+
+.savoir {
+    color:blue;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: grey;
+    height: 70px;
+    width: 100%;
+    margin-top:40px;
+}
+
+.equipe {
+    text-align: center;
+    font-size: 35px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#engagement {
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+#last {
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
 }
