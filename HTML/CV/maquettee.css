@@ -52,12 +52,14 @@
 }
 
 .imagess {
-    margin-top: 30px;
-    margin-bottom: 5px;
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-radius: 8px;
 }
+
 
 .bloc {
     display: flex;
@@ -106,4 +108,16 @@ footer {
     font-size: 20px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+}
+
+.last {
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+
+.gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 40px;
 }
