@@ -31,6 +31,7 @@ nav a{
     border: 2px solid black;
     border-radius: 50px;
     padding: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
 #recherche {
     margin-left: auto;
@@ -41,7 +42,88 @@ nav a{
     border: 1px solid #ccc;
 }
 
-#shenron{
-    width: 100px;
-    height: 150px;
+main {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#presentation {
+    display: inline-block;
+    font-size: xx-large;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.duo{
+    border: 5px solid black;
+    border-radius:50px;
+    margin-top: 50px;
+    margin-left: 15px;
+    margin-right: 15px;    
+}
+
+
+body{
+    background-color: slategray;
+}
+
+details{
+    margin: 100px;
+}
+
+#wow{
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+#gogeta{
+    margin: 50px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+details video{
+    border:2px solid black;
+    border-radius: 20px;
+}
+
+#personnage{
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    gap:50px;
+}
+
+#introp{
+    font-size: xx-large;
+    
+}
+
+.personnage{
+    font-size: large;
+    border: 2px solid black;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.personnage:hover {
+    color: orange; 
+    background-color: blue;
+}
+
+footer {
+    background-color: grey;
+    height: 70px;
+    width: 100%;
+    margin-top: 40px;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
